@@ -18,7 +18,7 @@
 #
 
 def user_exists?(name)
-  cmdStr = "rabbitmqctl -q list_users |grep '^#{name}\\b'"
+  cmdStr = "rabbitmqctl -q list_users |grep '#{name}\\b'"
   cmd = Mixlib::ShellOut.new(cmdStr)
   cmd.environment['HOME'] = ENV.fetch('HOME', '/root')
   cmd.run_command
